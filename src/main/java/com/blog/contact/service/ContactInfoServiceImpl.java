@@ -63,9 +63,11 @@ public class ContactInfoServiceImpl implements ContactInfoService {
 
 		Account account = this.accountRepository
 				.save(new Account(input.getUserName(), input.getCompany(), input.getEmail(), input.getBithdate()));
-		this.imageRepository.save(new Image(account, input.getPic().getType(),
-				serviceUtility.convertImagetoByteArray(input.getPic().getLocation()), input.getPic().getName()));
-		for (Phone phone : input.getNumber()) {
+		/*
+		 * this.imageRepository.save(new Image(account, input.getPic().getType(),
+		 * serviceUtility.convertImagetoByteArray(input.getPic().getLocation()),
+		 * input.getPic().getName()));
+		 */	for (Phone phone : input.getNumber()) {
 			this.phoneRepository.save(new Phone(account, phone.getNumber(), phone.getType()));
 		}
 		Address address = input.getAddress();

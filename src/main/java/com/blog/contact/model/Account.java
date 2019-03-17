@@ -9,10 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import lombok.Data;
 /*
  * Account domain object, which hold all the user information
  * */
 @Entity
+@Data
 public class Account {
 
 	@Id
@@ -50,56 +53,5 @@ public class Account {
 
 	}
 
-	public Image getPic() {
-		return pic;
-	}
-
-	public void setPic(Image pic) {
-		this.pic = pic;
-	}
-
-	public String getCompany() {
-		return company;
-	}
-
-	public void setCompany(String company) {
-		this.company = company;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getBithdate() {
-		return bithdate;
-	}
-
-	public Set<Phone> getNumber() {
-		return number;
-	}
-
-	public void setNumber(Set<Phone> number) {
-		this.number = number;
-	}
-
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
 
 }

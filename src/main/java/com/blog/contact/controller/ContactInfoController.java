@@ -3,8 +3,6 @@ package com.blog.contact.controller;
 import java.io.IOException;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,22 +16,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.blog.contact.ContactApiApplication;
 import com.blog.contact.exception.InvalidFilterException;
 import com.blog.contact.model.Account;
 import com.blog.contact.model.ContactInfo;
 import com.blog.contact.service.ContactInfoService;
 import com.blog.contact.validations.Validator;
 
+import lombok.extern.slf4j.Slf4j;
+
 /*
  * Main controller class, it has four methods for CRUD operations wrt contact information
  * */
 @RestController
 @RequestMapping("/profile")
+@Slf4j
 public class ContactInfoController {
 	@Autowired
 	ContactInfoService service;
-	private static final Logger log = LoggerFactory.getLogger(ContactInfoController.class);
 	/*
 	 * fetches record, added validations for phone number, similarly validations filter for email, state , city can be added
 	 */
@@ -55,7 +54,7 @@ public class ContactInfoController {
 		log.info("attempt to create a record");
 		return new ResponseEntity<String>(service.createRecord(input), HttpStatus.OK);
 	}
-
+	
 	/*
 	 * updates record
 	 */
@@ -73,7 +72,7 @@ public class ContactInfoController {
 	public ResponseEntity<String> delete(@RequestParam(value = "email", required = false) String email,
 			String phoneNumber, String userName) {
 		log.info("attempt to delete a record");
-		return new ResponseEntity<String>(service.deleteRecord(userName, email.trim(), phoneNumber), HttpStatus.OK);
+		return new ResponseEntity<String>(service.deleteRecord(userName, null, null), HttpStatus.OK);
 	}
 
 }

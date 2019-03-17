@@ -16,7 +16,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'war'
 
-group = 'com.solstice.challenge'
+group = 'com.blog'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
@@ -35,5 +35,10 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-hateoas')
 	runtime('com.h2database:h2')
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+	compileOnly 'org.projectlombok:lombok'	
+	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+
+	compile "org.springframework.boot:spring-boot-starter-actuator"
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }

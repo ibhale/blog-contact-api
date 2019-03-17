@@ -113,7 +113,7 @@ public class ContactInfoServiceUtility {
 		ContactInfo user = null;
 		for (Account account : accounts) {
 			user = new ContactInfo(account.getId(), account.getUserName(), account.getCompany(), account.getEmail(),
-					account.getBithdate(), account.getNumber(), account.getAddress(), account.getPic().getPic());
+					account.getBithdate(), account.getNumber(), account.getAddress(),null);
 			users.add(user);
 		}
 		return users;
