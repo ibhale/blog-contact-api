@@ -37,6 +37,8 @@ public class ContactInfoServiceUtility {
 	}
 /*
  * transform image from a location to byte array, which is further loaded into DB
+ * @param location
+ * return byte[]
  * */
 	public byte[] convertImagetoByteArray(String location) throws IOException {
 		ClassPathResource image = new ClassPathResource(location);
@@ -53,6 +55,8 @@ public class ContactInfoServiceUtility {
 	}
 	/*
 	 * fetches all available profiles matched by a username
+	 * @param userName
+	 * returns List<Account>
 	 * */
 	public List<Account> searchByUserName(String userName) {
 		accounts = new ArrayList<>();
@@ -63,6 +67,8 @@ public class ContactInfoServiceUtility {
 	}
 	/*
 	 * fetches all available profiles matched by a email
+	 * @param email
+	 * @return List<Account>
 	 * */
 	public List<Account> searchByEmail(String email) {
 		accounts = new ArrayList<>();
@@ -73,6 +79,8 @@ public class ContactInfoServiceUtility {
 	}
 	/*
 	 * fetches all available profiles matched by a phonenumber
+	 * @param phoneNumber
+	 * returns List<Account>
 	 * */
 	public List<Account> searchByPhoneNumber(String phoneNumber) {
 		accounts = new ArrayList<>();
@@ -90,6 +98,9 @@ public class ContactInfoServiceUtility {
 	}
 	/*
 	 * fetches all available profiles matched by a city or state
+	 * @param city
+	 * @param state
+	 * returns List<Account>
 	 * */
 
 	public List<Account> searchByAddress(String city, String state) {
@@ -106,6 +117,8 @@ public class ContactInfoServiceUtility {
 	}
 	/*
 	 *convert list of account object to list of contact info object
+	 *@param accounts
+	 *@returns List<ContactInfo> 
 	 * */
 
 	public List<ContactInfo> createContactInfoList(List<Account> accounts) {
